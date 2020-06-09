@@ -1,0 +1,81 @@
+<div class="index-container">
+    <h1 class="title">Books</h1>
+    <div class="index-content-main">
+
+        <div class="books-content_1">
+            <h1 class="titlu-mic">Search for specific books</h1>
+            <% if(sesiune.mesajEroareBooks){ %>
+                <p class="mesajEroare">
+                    <%- sesiune.mesajEroareBooks %>
+                </p>
+                <% } %>
+                    <form action="/cautare" method="POST">
+                        <input type="text" placeholder="Title" name="titlu" maxlength="255">
+                        <input type="text" placeholder="Author" name="autor" maxlength="255">
+                        <input type="text" placeholder="Category" name="categorie" maxlength="255">
+                        <input type="text" placeholder="Publishing house" name="editura" maxlength="255">
+                        <input type="text" placeholder="ISBN" name="isbn" maxlength="255">
+                        <input type="number" placeholder="Publishing year" name="an_aparitie" max="2020">
+                        <button type="submit">Search</button>
+                    </form>
+
+                    <% if(sesiune.books){ %>
+                        <% if(sesiune.books.length > 0) {%>
+                            <div class="books">
+                                <table id="table">
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Author</th>
+                                        <th>Category</th>
+                                        <th>Publishing house</th>
+                                        <th>ISBN</th>
+                                        <th>Publishing year</th>
+                                        <th>Status</th>
+                                        <% if(sesiune.loggedin == true && sesiune.admin == undefined || sesiune.admin == false) {%>
+                                            <th>Rezerva</th>
+                                            <% } %>
+                                    </tr>
+                                    <% sesiune.books.forEach((element) =>{ %>
+                                        <tr>
+                                            <td>
+                                                <%- element.titlu %>
+                                            </td>
+                                            <td>
+                                                <%- element.autor %>
+                                            </td>
+                                            <td>
+                                                <%- element.categorie %>
+                                            </td>
+                                            <td>
+                                                <%- element.editura %>
+                                            </td>
+                                            <td>
+                                                <%- element.isbn %>
+                                            </td>
+                                            <td>
+                                                <%- element.an_aparitie %>
+                                            </td>
+                                            <td>
+                                                <%- element.status %>
+                                            </td>
+                                            <% if(sesiune.loggedin == true && sesiune.admin == undefined || sesiune.admin == false) {%>
+                                                <td class="rezervare">
+                                                    <form action="/rezerva" method="POST">
+                                                        <input type="date" name="data_rezervare" min="<%- sesiune.today %>" required>
+                                                        <!-- fara min pt verificare cronJob-->
+                                                        <input type="hidden" name="id_carte" value="<%- element.id_carte  %> ">
+                                                        <button type="submit">Rezerva</button>
+                                                    </form>
+                                                </td>
+                                                <% } %>
+                                        </tr>
+                                        <% }); %>
+                                </table>
+                            </div>
+                            <% } else if (sesiune.books.length <= 0){ %>
+                                <h2 class="titlu-mic">No results found</h2>
+                                <% } %>
+                                    <% } %>
+        </div>
+    </div>
+</div>

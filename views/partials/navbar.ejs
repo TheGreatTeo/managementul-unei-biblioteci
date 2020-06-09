@@ -1,0 +1,34 @@
+<header>
+    <div class="custom-padding">
+        <div class="nav">
+            <div class="logo">
+                <img src="resources/books.png">
+            </div>
+
+            <ul class="menu-area">
+                <li><a href="/index">Home</a></li>
+                <li><a href="/books">Books</a></li>
+                <% if(!sesiune.username) {%>
+                    <li>
+                        <p>Not logged in</p>
+                    </li>
+                    <li><a href="/welcome">Log in</a></li>
+                    <% } %>
+                        <% if(sesiune.username){ %>
+                            <% if(sesiune.admin){%>
+                                <li><a href="/admin">Administrator</a></li>
+                                <% } else if(!sesiune.admin){ %>
+                                    <li><a href="/account">My account</a></li>
+                                    <% } %>
+                                        <li>
+                                            <p>Logged in as
+                                                <%- sesiune.username %>
+                                            </p>
+                                        </li>
+                                        <li><a href="/logout">Log out</a></li>
+                                        <% } %>
+            </ul>
+
+        </div>
+    </div>
+</header>

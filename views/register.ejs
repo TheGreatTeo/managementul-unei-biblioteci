@@ -1,0 +1,24 @@
+<body class="welcome">
+    <div class="login">
+        <h1>welcome to Library</h1>
+        <% if(sesiune.mesajEroare){ %>
+            <p class="mesajEroare">
+                <%- sesiune.mesajEroare %>
+            </p>
+            <% } %>
+                <form action="/signup" method="POST">
+                    <input type="text" placeholder="Enter your last name" name="nume" maxlength="255" required>
+                    <input type="text" placeholder="Enter your first name" name="prenume" maxlength="255" required>
+                    <input type="text" placeholder="Enter your username" name="username" maxlength="20" required>
+                    <input type="password" placeholder="Enter your password" name="password" required>
+                    <input type="email" placeholder="Enter your email" name="email" required>
+                    <input type="number" placeholder="Enter your phone number" name="number" required>
+                    <input type="text" placeholder="Enter your birthdate" name="date" onfocus="(this.type='date')" required>
+                    <button type="submit">Register</button>
+                </form>
+                <p>Or continue to website</p>
+                <form action="/index" method="GET">
+                    <button type="submit">Continue to website</button>
+                </form>
+    </div>
+</body>

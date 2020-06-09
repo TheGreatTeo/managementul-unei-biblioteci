@@ -1,0 +1,85 @@
+<div class="index-container">
+    <h1 class="title">My account</h1>
+    <div class="account-content-main">
+
+        <div class="account-content_1">
+            <h2 class="titlu-mic">Booked books</h2>
+            <% if(sesiune.rezervari.length > 0){ %>
+                <div class="books">
+                    <table id="table">
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Category</th>
+                            <th>Booking date</th>
+                            <th>Cancel</th>
+                        </tr>
+                        <% for(let i = 0; i < sesiune.rezervari.length; i++) { %>
+                            <tr>
+                                <td>
+                                    <%- sesiune.rezervari[i].titlu %>
+                                </td>
+                                <td>
+                                    <%- sesiune.rezervari[i].autor %>
+                                </td>
+                                <td>
+                                    <%- sesiune.rezervari[i].categorie %>
+                                </td>
+                                <td>
+                                    <%- sesiune.data_rezervare[i] %>
+                                </td>
+                                <td class="rezervare">
+                                    <form action="/anulare" method="POST">
+                                        <input type="hidden" name="id_rezervare" value="<%- sesiune.rezervari[i].id_rezervare  %> ">
+                                        <input type="hidden" name="id_carte" value="<%- sesiune.rezervari[i].id_carte %> ">
+                                        <button type="submit">Cancel</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <% } %>
+                    </table>
+                </div>
+                <% } else if(sesiune.rezervari.length <= 0) { %>
+                    <h3 class="titlu-mic">You don't have any bookings</h3>
+                    <% } %>
+        </div>
+
+        <div class="account-content_2">
+            <h2 class="titlu-mic">Borrowed books</h2>
+            <% if(sesiune.imprumut_client.length > 0){ %>
+                <div class="books">
+                    <table id="table">
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Category</th>
+                            <th>Borrow date</th>
+                            <th>Limit date</th>
+                        </tr>
+                        <% for(let i =0 ; i < sesiune.imprumut_client.length;i++) { %>
+                            <tr>
+                                <td>
+                                    <%- sesiune.imprumut_client[i].titlu %>
+                                </td>
+                                <td>
+                                    <%- sesiune.imprumut_client[i].autor %>
+                                </td>
+                                <td>
+                                    <%- sesiune.imprumut_client[i].categorie %>
+                                </td>
+                                <td>
+                                    <%- sesiune.data_imprumut[i] %>
+                                </td>
+                                <td>
+                                    <%- sesiune.data_limita[i] %>
+                                </td>
+                            </tr>
+                            <% } %>
+                    </table>
+                </div>
+                <% } else if(sesiune.imprumut_client.length <= 0) {%>
+                    <h3 class="titlu-mic">You don't have any borrowed books</h3>
+                    <% } %>
+        </div>
+    </div>
+</div>

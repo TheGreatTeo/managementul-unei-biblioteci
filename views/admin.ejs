@@ -1,0 +1,149 @@
+<div class="index-container">
+    <h1 class="title">Administrator</h1>
+    <div class="admin-content-main">
+
+        <div class="admin-content_1">
+            <h2 class="titlu-mic-admin">Search and insert books in database</h2>
+            <% if(sesiune.mesajEroareInserare){ %>
+                <p class="mesajEroare">
+                    <%- sesiune.mesajEroareInserare %>
+                </p>
+                <% } %>
+                    <form action="/admin" method="POST">
+                        <input type="text" placeholder="Title" name="titlu" maxlength="255">
+                        <input type="text" placeholder="Author" name="autor" maxlength="255">
+                        <input type="text" placeholder="Category" name="categorie" maxlength="255">
+                        <input type="text" placeholder="Publishing house" name="editura" maxlength="255">
+                        <input type="text" placeholder="ISBN" name="isbn" maxlength="255">
+                        <input type="number" placeholder="Publishing year" name="an_aparitie" max="2020">
+                        <input type="number" placeholder="Quantity" name="cantitate">
+                        <button type="submit" formaction="/cautare_admin">Search</button>
+                        <button type="submit" formaction="/inserare_admin">Insert</button>
+                    </form>
+
+                    <% if(sesiune.cautare_admin){ %>
+                        <% if(sesiune.cautare_admin.length > 0){ %>
+                            <div class="books">
+                                <table id="table">
+                                    <th>Title</th>
+                                    <th>Author</th>
+                                    <th>Category</th>
+                                    <th>Publishing house</th>
+                                    <th>ISBN</th>
+                                    <th>Publishing year</th>
+                                    <th>Quantity</th>
+                                    <th>Status</th>
+                                    </tr>
+                                    <% sesiune.cautare_admin.forEach((element) =>{ %>
+                                        <tr>
+                                            <td>
+                                                <%- element.titlu %>
+                                            </td>
+                                            <td>
+                                                <%- element.autor %>
+                                            </td>
+                                            <td>
+                                                <%- element.categorie %>
+                                            </td>
+                                            <td>
+                                                <%- element.editura %>
+                                            </td>
+                                            <td>
+                                                <%- element.isbn %>
+                                            </td>
+                                            <td>
+                                                <%- element.an_aparitie %>
+                                            </td>
+                                            <td>
+                                                <%- element.cantitate %>
+                                            </td>
+                                            <td>
+                                                <%- element.status %>
+                                            </td>
+                                        </tr>
+                                        <% }); %>
+                                </table>
+                            </div>
+                            <% } else if (sesiune.cautare_admin.length <= 0){ %>
+                                <h2 class="titlu-mic">No results found</h2>
+                                <% } %>
+                                    <% } %>
+        </div>
+        <div class="admin-content_2">
+            <h2 class="titlu-mic-admin">Book borrowing</h2>
+            <% if(sesiune.mesajEroareImprumut){ %>
+                <p class="mesajEroare">
+                    <%- sesiune.mesajEroareImprumut %>
+                </p>
+                <% } %>
+                    <form action="/imprumut-admin" method="POST">
+                        <input type="text" placeholder="Client's username" name="username" required>
+                        <input type="text" placeholder="Book's ISBN" name="isbn" maxlength="255" required>
+                        <button type="submit">Borrow</button>
+                    </form>
+
+        </div>
+        <div class="admin-content_3">
+            <h2 class="titlu-mic-admin">Check book return</h2>
+            <% if(sesiune.mesajEroareVerificare){ %>
+                <p class="mesajEroare">
+                    <%- sesiune.mesajEroareVerificare %>
+                </p>
+                <% } %>
+                    <form action="/verificare-admin" method="POST">
+                        <input type="text" placeholder="Client's username" name="username" required>
+                        <input type="text" placeholder="Books's ISBN" name="isbn" required>
+                        <button type="submit">Check</button>
+                    </form>
+
+                    <% if(sesiune.verificare){ %>
+                        <% if(sesiune.verificare.length > 0){ %>
+                            <div class="books">
+                                <table id="table">
+                                    <tr>
+                                        <th>Username</th>
+                                        <th>ISBN</th>
+                                        <th>Borrow date</th>
+                                        <th>Limit date</th>
+                                        <% if(sesiune.zile != undefined){ %>
+                                            <% if(sesiune.zile > 0){ %>
+                                                <th>Exceeded days</th>
+                                                <% }} %>
+                                                    <th>Return</th>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <%- sesiune.username_verificare %>
+                                        </td>
+                                        <td>
+                                            <%- sesiune.isbn_verificare %>
+                                        </td>
+                                        <td>
+                                            <%- sesiune.data_imprumut %>
+                                        </td>
+                                        <td>
+                                            <%- sesiune.data_limita  %>
+                                        </td>
+                                        <% if(sesiune.zile != undefined){ %>
+                                            <% if(sesiune.zile >0) { %>
+                                                <td>
+                                                    <%- sesiune.zile %>
+                                                </td>
+                                                <% }} %>
+                                                    <td>
+                                                        <form action="/inapoiere" method="POST">
+                                                            <input type="hidden" name="id_imprumut" value="<%- sesiune.verificare[0].id_imprumut %> ">
+                                                            <input type="hidden" name="id_carte" value="<%- sesiune.verificare[0].id_carte %> ">
+                                                            <button type="submit" class="return">Return</button>
+                                                        </form>
+                                                    </td>
+                                    </tr>
+
+                                </table>
+                            </div>
+                            <% }else if(sesiune.verificare.length <=0){ %>
+                                <% }} %>
+        </div>
+    </div>
+</div>

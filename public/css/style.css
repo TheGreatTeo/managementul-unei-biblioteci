@@ -1,0 +1,501 @@
+body,
+html {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+body,
+header {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.welcome {
+    background-image: url("/resources/background.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.welcometo {
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding-right: 25%;
+    margin-bottom: 0;
+}
+
+.Library {
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #a96e5b;
+    font-size: 70px;
+    padding-left: 25%;
+    margin-top: 0;
+}
+
+.login {
+    position: absolute;
+    width: 35%;
+    background: rgba(255, 255, 255, 0.8);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 12px 20px;
+    margin: 8px 0;
+}
+
+.login input[type=text],
+.login input[type=password],
+.login input[type=email],
+.login input[type=number],
+.login input[type=date] {
+    width: 50%;
+    padding: 10px 18px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+
+.login button {
+    width: 50%;
+    background-color: #587e76;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bolder;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+
+.login button:hover {
+    background: #44615b;
+}
+
+.mesajEroare {
+    color: #e00000;
+    font-weight: bold;
+}
+
+.menu-area li a {
+    text-decoration: none;
+}
+
+.menu-area li {
+    list-style-type: none;
+}
+
+.custom-padding {
+    position: fixed;
+    width: 100%;
+    background: #587e76;
+    top: 0;
+}
+
+.nav {
+    max-width: 80%;
+    position: relative;
+    margin: 0 auto;
+    text-align: right;
+}
+
+.logo {
+    float: left;
+    text-align: left;
+    padding-left: 3%;
+}
+
+.logo img {
+    width: 12%;
+    height: 12%;
+}
+
+.menu-area li {
+    display: inline-block;
+}
+
+.menu-area a {
+    color: #fff;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+    padding: 0 15px;
+    font-size: 14px;
+    line-height: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.menu-area p {
+    color: #000;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+    padding: 0 25px;
+    font-size: 14px;
+    line-height: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.menu-area a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background-color: #a96e5b;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 250ms ease-in;
+}
+
+.menu-area a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.index {
+    background-color: #a96e5b;
+}
+
+.index-container {
+    box-shadow: 10px 15px #5e3e33;
+    background-color: white;
+    width: 90%;
+    margin: auto;
+    padding-top: 3%;
+    margin-top: 10%
+}
+
+.index-content-main {
+    width: 100%;
+    margin: 0 auto;
+    background-color: white;
+    top: 0;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    display: flex;
+}
+
+.title {
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.index-content_1 {
+    width: 40%;
+    margin: 0 auto;
+    background-color: #587e76;
+    top: 0;
+    margin-top: 5%;
+    margin-bottom: 7%;
+    padding: 3%;
+    box-shadow: 10px 15px #4a4a4a;
+}
+
+.index-content_2 {
+    width: 40%;
+    margin: 0 auto;
+    background-color: #587e76;
+    top: 0;
+    margin-top: 5%;
+    margin-bottom: 7%;
+    padding: 3%;
+    box-shadow: 10px 15px #4a4a4a;
+}
+
+.index-banner,
+.index-banner img {
+    width: 100%;
+    height: 400px;
+}
+
+.index-content_1 p,
+.index-content_2 p {
+    color: white;
+    padding: 0 auto;
+    text-align: justify;
+}
+
+.index-content_1 .indent p,
+.index-content_2 .indent p {
+    text-indent: 2em;
+}
+
+.books-content_1 {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #587e76;
+    top: 0;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    min-height: 60vh;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    box-shadow: 10px 15px #4a4a4a;
+}
+
+.books-content_1 input[type=text],
+.books-content_1 input[type=number] {
+    width: 50%;
+    padding: 10px 18px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+
+.books-content_1 button {
+    width: 50%;
+    background-color: #a96e5b;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+
+.books-content_1 button:hover {
+    background-color: #9e6855;
+}
+
+#table {
+    border-collapse: collapse;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
+#table td,
+#table th {
+    border: 1px, solid, #ddd;
+    padding: 8px;
+}
+
+#table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#table tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+#table tr:hover {
+    background-color: #ddd;
+}
+
+#table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #a96e5b;
+    color: white;
+}
+
+.books {
+    overflow-x: auto;
+}
+
+footer {
+    margin-top: 5%;
+    width: 100%;
+    background-color: #587e76;
+    text-align: center;
+    font-size: 1.5em;
+    color: white;
+    bottom: 0;
+    box-shadow: 0 50vh 0 50vh #587e76;
+    display: inline-block;
+}
+
+.account-content-main {
+    width: 100%;
+    margin: 0 auto;
+    background-color: white;
+    top: 0;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    display: flex;
+}
+
+.account-content_1,
+.account-content_2 {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #587e76;
+    margin-top: 5%;
+    margin-bottom: 7%;
+    padding-bottom: 3%;
+    min-height: 20vh;
+    box-shadow: 10px 15px #4a4a4a;
+}
+
+.account-content_1 button,
+.account-content_2 button {
+    width: 100%;
+    background-color: #a96e5b;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+h2.titlu-mic {
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding-top: 5%;
+}
+
+h1.titlu-mic {
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding-bottom: 3%;
+}
+
+h3.titlu-mic {
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding-top: 5%;
+}
+
+.admin-content-main {
+    width: 100%;
+    margin: 0 auto;
+    background-color: white;
+    top: 0;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    display: flex;
+}
+
+.admin-content_1 {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #587e76;
+    margin-top: 5%;
+    margin-bottom: 7%;
+    padding-bottom: 5%;
+    padding-top: 5%;
+}
+
+.admin-content_2 {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #587e76;
+    margin-top: 5%;
+    margin-bottom: 7%;
+    padding-bottom: 5%;
+    padding-top: 5%;
+}
+
+.admin-content_3 {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #587e76;
+    margin-top: 5%;
+    margin-bottom: 7%;
+    padding-bottom: 5%;
+    padding-top: 5%;
+}
+
+.admin-content_1 input[type=text],
+.admin-content_1 input[type=number],
+.admin-content_2 input[type=text],
+.admin-content_2 input[type=number],
+.admin-content_3 input[type=text],
+.admin-content_3 input[type=number] {
+    width: 50%;
+    padding: 10px 18px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+
+.admin-content_1 button,
+.admin-content_2 button,
+.admin-content_3 button {
+    width: 50%;
+    background-color: #a96e5b;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+button.return {
+    width: 100%;
+    background-color: #a96e5b;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.admin-content_1 button:hover,
+.admin-content_2 button:hover,
+.admin-content_3 button:hover {
+    background-color: #9e6855;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.titlu-mic-admin {
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding-bottom: 2%;
+}
+
+@media screen and (max-width: 1200px) {
+    .login h1 {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .menu-area li {
+        float: none;
+        display: block;
+    }
+    .index-container {
+        margin-top: 40%
+    }
+}
